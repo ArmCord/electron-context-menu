@@ -6,10 +6,10 @@ const isDev = require('electron-is-dev');
 
 const webContents = win => win.webContents || (win.id && win);
 function paste(contents) {
-	const contentTypes = clipboard.availableFormats().toString();
+	const contentTypes = electron.clipboard.availableFormats().toString();
 	//Workaround: fix pasting the images.
 	if(contentTypes.includes('image/') && contentTypes.includes('text/html')) {
-		clipboard.writeImage(clipboard.readImage());
+		electron.clipboard.writeImage(electron.clipboard.readImage());
     }
 	contents.paste();
 }
