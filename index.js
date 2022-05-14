@@ -5,7 +5,14 @@ const {download} = require('electron-dl');
 const isDev = require('electron-is-dev');
 
 const webContents = win => win.webContents || (win.id && win);
-
+function paste(contents) {
+	const contentTypes = clipboard.availableFormats().toString();
+	//Workaround: fix pasting the images.
+	if(contentTypes.includes('image/') && contentTypes.includes('text/html')) {
+		clipboard.writeImage(clipboard.readImage());
+    }
+	contents.paste();
+}
 const decorateMenuItem = menuItem => {
 	return (options = {}) => {
 		if (options.transform && !options.click) {
@@ -110,13 +117,7 @@ const create = (win, options) => {
 				click(menuItem) {
 					const target = webContents(win);
 
-					if (menuItem.transform) {
-						let clipboardContent = electron.clipboard.readText(props.selectionText);
-						clipboardContent = menuItem.transform ? menuItem.transform(clipboardContent) : clipboardContent;
-						target.insertText(clipboardContent);
-					} else {
-						target.paste();
-					}
+					paste(target)
 				}
 			}),
 			saveImage: decorateMenuItem({
