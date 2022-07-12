@@ -120,19 +120,28 @@ The first argument is an array of default actions that can be used. The second a
 
 `MenuItem` labels may contain the placeholder `{selection}` which will be replaced by the currently selected text as described in [`options.labels`](#labels).
 
+#### showLearnSpelling
+
+Type: `boolean`\
+Default: `true`
+
+Show the `Learn Spelling {selection}` menu item when right-clicking text.
+
+Even if `true`, the `spellcheck` preference in browser window must still be enabled. It will also only show when right-clicking misspelled words.
+
 #### showLookUpSelection
 
 Type: `boolean`\
 Default: `true`
 
-Show the `Look Up {selection}` menu item when right-clicking text on macOS.
+Show the `Look Up {selection}` menu item when right-clicking text.
 
 #### showSearchWithGoogle
 
 Type: `boolean`\
 Default: `true`
 
-Show the `Search with Google` menu item when right-clicking text on macOS.
+Show the `Search with Google` menu item when right-clicking text.
 
 #### showCopyImage
 
@@ -295,6 +304,22 @@ Example for actions:
 	]
 }
 ```
+
+#### onShow
+
+Type: `Function`
+
+Called when the context menu is shown.
+
+The function receives an [`Event` object](https://developer.mozilla.org/en-US/docs/Web/API/Event).
+
+#### onClose
+
+Type: `Function`
+
+Called when the context menu is closed.
+
+The function receives an [`Event` object](https://developer.mozilla.org/en-US/docs/Web/API/Event).
 
 ## Related
 
