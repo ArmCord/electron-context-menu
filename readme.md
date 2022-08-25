@@ -41,7 +41,7 @@ let mainWindow;
 Advanced example:
 
 ```js
-const {app, BrowserWindow} = require('electron');
+const {app, BrowserWindow, shell} = require('electron');
 const contextMenu = require('electron-context-menu');
 
 contextMenu({
@@ -143,6 +143,13 @@ Default: `true`
 
 Show the `Search with Google` menu item when right-clicking text.
 
+#### showSelectAll
+
+Type: `boolean`\
+Default: `false` on macOS, `true` on Windows and Linux
+
+Show the `Select All` menu item when right-clicking in a window.
+
 #### showCopyImage
 
 Type: `boolean`\
@@ -170,6 +177,27 @@ Type: `boolean`\
 Default: `false`
 
 Show the `Save Image As…` menu item when right-clicking on an image.
+
+#### showCopyVideoAddress
+
+Type: `boolean`\
+Default: `false`
+
+Show the `Copy Video Address` menu item when right-clicking on a video.
+
+#### showSaveVideo
+
+Type: `boolean`\
+Default: `false`
+
+Show the `Save Video` menu item when right-clicking on a video.
+
+#### showSaveVideoAs
+
+Type: `boolean`\
+Default: `false`
+
+Show the `Save Video As…` menu item when right-clicking on a video.
 
 #### showSaveLinkAs
 
@@ -249,13 +277,17 @@ To get spellchecking, “Correct Automatically”, and “Learn Spelling” in t
 The following options are ignored when `menu` is used:
 
 - `showLookUpSelection`
+- `showSearchWithGoogle`
+- `showSelectAll`
 - `showCopyImage`
 - `showCopyImageAddress`
 - `showSaveImageAs`
+- `showCopyVideoAddress`
+- `showSaveVideo`
+- `showSaveVideoAs`
 - `showSaveLinkAs`
 - `showInspectElement`
 - `showServices`
-- `showSearchWithGoogle`
 
 Default actions:
 
@@ -267,10 +299,14 @@ Default actions:
 - `cut`
 - `copy`
 - `paste`
+- `selectAll`
 - `saveImage`
 - `saveImageAs`
+- `saveVideo`
+- `saveVideoAs`
 - `copyImage`
 - `copyImageAddress`
+- `copyVideoAddress`
 - `copyLink`
 - `saveLinkAs`
 - `inspect`
