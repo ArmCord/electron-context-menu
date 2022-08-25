@@ -72,7 +72,7 @@ const create = (win, options) => {
 				label: '&Search with Google',
 				visible: hasText,
 				click() {
-					const url = new URL('https://duckduckgo.com/');
+					const url = new URL("https://google.com/search");
 					url.searchParams.set('q', props.selectionText);
 					electron.shell.openExternal(url.toString());
 				}
@@ -82,9 +82,8 @@ const create = (win, options) => {
 				label: '&Search with DuckDuckGo',
 				visible: hasText,
 				click() {
-					const url = new URL('https://www.google.com/search');
-					url.searchParams.set('q', props.selectionText);
-					electron.shell.openExternal(url.toString());
+					console.log("DDG")
+					electron.shell.openExternal('https://duckduckgo.com/' + props.selectionText);
 				}
 			}),
 			cut: decorateMenuItem({
