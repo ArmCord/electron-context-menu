@@ -24,7 +24,12 @@ declare namespace contextMenu {
 		@default 'Search with Google'
 		*/
 		readonly searchWithGoogle?: string;
-
+		
+		/**
+		@default 'Search with DuckDuckGo'
+		*/
+		readonly searchWithDuckDuckGo?: string;
+		
 		/**
 		@default 'Cut'
 		*/
@@ -115,6 +120,7 @@ declare namespace contextMenu {
 		readonly learnSpelling: (options: ActionOptions) => MenuItemConstructorOptions;
 		readonly lookUpSelection: (options: ActionOptions) => MenuItemConstructorOptions;
 		readonly searchWithGoogle: (options: ActionOptions) => MenuItemConstructorOptions;
+		readonly searchWithDuckDuckGo: (options: ActionOptions) => MenuItemConstructorOptions;
 		readonly cut: (options: ActionOptions) => MenuItemConstructorOptions;
 		readonly copy: (options: ActionOptions) => MenuItemConstructorOptions;
 		readonly paste: (options: ActionOptions) => MenuItemConstructorOptions;
@@ -184,7 +190,12 @@ declare namespace contextMenu {
 		@default true
 		*/
 		readonly showSearchWithGoogle?: boolean;
+		/**
+		Show the `Search with DuckDuckGo` menu item when right-clicking text.
 
+		@default false
+		*/
+		readonly showSearchWithDuckDuckGo?: boolean;
 		/**
 		Show the `Select All` menu item when right-clicking in a window.
 
